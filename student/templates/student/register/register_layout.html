@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title> College </title>
+	{% endif %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+</head>
+
+<style>
+.circle {
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.glowing {
+	animation: glow 2s linear infinite;
+}
+
+.active {
+	background-color: #00ff00;
+}
+
+#step1::before, #step2::before, #step3::before {
+	content: '';
+	position: absolute;
+	padding: 2px;
+	background-color: #00ff00;
+	top: 40%;
+	left: -5px;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 rgb(0, 255, 0,.8);
+  }
+
+  40% {
+    box-shadow: 0 0 0 20px rgb(0, 255, 0,0);
+  }
+
+  80% {
+    box-shadow: 0 0 0 20px rgb(0, 255, 0,0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(0, 255, 0,0);
+  }
+}
+
+.text {
+  line-height : 30px;
+  color: white;
+  font-size: 15px;
+}
+
+.progress-bar {
+  transition: width 2s ease-out;
+}
+
+.navbar-default {
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.panel {
+	margin: 10px 0;
+	padding: 10px 5px;
+	border-radius: 0;
+	border: none;
+}
+
+#submit-text, #upload-text, #payment-text {
+	color: #fff;
+}
+
+</style>
+
+<body>
+
+<div classs = 'row'>
+	<!-- Main sidebar starts here -->
+	<div class = 'col-xs-3 sidebar-container' style = 'background-color: #eeeeee;'>
+
+<!-- Brand heading starts here -->
+		<nav class="navbar navbar-default text-center" style = " position: fixed; width: 220px; z-index: 10">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#" style = "margin: 2.5px;"><b>JEE Registration</b></a>
+				</div>
+			</div>
+		</nav>
+<!-- Brand heading ends here -->
+
+<!-- Sidebar contents starts here -->
+{% block sidebar %} {% endblock %}
+	  <!-- Main Sidebar contents ends here -->
+	</div>
+	<!-- Main Sidebar ends here -->
+
+
+	<div class = 'col-xs-9 main-content'>
+<!-- Top navigation menu starts here  -->
+		<nav class="navbar navbar-default" style = "background-color: #337ab7; position: fixed; width: calc(100% - 220px); z-index: 16000">
+
+			<div class = "container-fluid text-center">
+				<span id = "submit-text" class = "pull-left"><b>Submit Data</b></span>
+				<span id = "upload-text"><b>Upload Photos</b></span>
+				<span id = "payment-text" class = "pull-right"><b>Make Payment</b></span>
+				<div class = "progress" style = "position: relative; top: 7px; height: 4px">
+					<div class = "progress-bar" role = "progressbar" style = 'background-color: #00ff00'></div>
+				</div>
+
+				<div class = "container-fluid" style = "padding: 0; position: relative; top: -5px; ">
+					<div id = "step1" class = "circle text-center pull-left"></div>
+					<div id = "step2" class = "circle text-center"></div>
+					<div id = "step3" class = "circle text-center pull-right"></div>
+				</div>
+			</div>
+		</nav>
+	<!-- Top navigation menu ends here -->
+
+	<!-- Left panel where contents are shown (all the main stuffs) start here -->
+
+		{% block content %} {% endblock %}
+	<!-- Left panel where contents are shown ends here -->
+	</div>
+</div>
+
+</body>
+
+<script>
+</script>
+</html>

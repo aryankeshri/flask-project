@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>College</title>
+	{% endif %}
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+</head>
+
+<style>
+
+.spinner {
+	border-radius: 50%;
+	border: 5px solid #f2f2f2;
+	border-top: 5px solid #999999;
+	padding: 30px; 
+	position: relative;
+	margin: 30px auto;
+	width: 100px;
+	height: 100px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+</style>
+
+<body>
+
+<div class = "container text-center">
+	<div class = "spinner"></div>
+	<div class = "container text-center">
+		Your payment is being processed....<br>
+		Please do not <b>refresh</b> the page or press the <b>back button</b>
+	</div>
+</div>
+
+</body>
+
+<script>
+
+$(document).ready(function() {
+	setTimeout(redirect,3000);
+
+	function redirect() {
+		document.location = 'http://localhost/student';
+	}
+});
+
+</script>
+
+</html>

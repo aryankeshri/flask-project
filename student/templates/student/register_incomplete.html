@@ -1,0 +1,44 @@
+{% extends 'student/student_layout.html' %}
+
+{% block content %}
+	
+	<div class = "panel panel-default" style = 'margin: 20px 10px;'>
+		<div class = 'panel-body'>
+			<div class="alert alert-success">
+			  <strong>Success!</strong> Submission of INFORMATION is complete
+			</div>
+		</div>
+	</div>
+
+		<div class = 'panel panel-default' style = 'margin: 20px 10px;'>
+			<div class = 'panel-body'>
+			{% if steps[1] == 0 %}
+				<div class = 'alert alert-danger'>
+					<strong>Warning!</strong>You have not uploaded the photos. <a href = '{{ url_for("student.register_step_2") }}' class = 'alert-link'>Upload now</a>
+				</div>
+			{% else %}
+				<div class="alert alert-success">
+			  		<strong>Success!</strong> Upload of PHOTOS is complete
+			  	</div>
+			{% endif %}
+			</div>
+		</div>
+
+
+		<div class = 'panel panel-default' style = 'margin: 20px 10px;'>
+			<div class = 'panel-body'>
+			{% if steps[2] == 0 %}
+				<div class = 'alert alert-danger'>
+					<strong>Warning!</strong> You have not done payment. <a href = '{{ url_for("student.register_step_3") }}' class = 'alert-link'>Pay Now</a>
+				</div>
+			{% else %}
+				<div class="alert alert-success">
+			  		<strong>Success!</strong> PAYMENT is complete
+			  	</div>
+			{% endif %}
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}

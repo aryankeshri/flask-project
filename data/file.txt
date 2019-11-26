@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to NIT Jamshedpur</title>
+    <link href="css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="css/Menu.css" rel="stylesheet" type="text/css" />
+    
+    <style type="text/css">
+        .login
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #FFF;
+            text-decoration: none;
+            -moz-border-radius: 10px; /* Firefox */
+            -webkit-border-radius: 10px; /* Safari, Chrome */ /*border-radius:10px;*/
+            background-image: url(images/bg.jpg);
+            background-repeat: repeat; /*height: 230px;*/
+            padding-right: 10px;
+            padding-left: 10px;
+            z-index: 1;
+        }
+        .footer
+        {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 12px;
+            color: #FFF;
+            text-decoration: none;
+            height: 60px;
+            background: #001447; /* Old browsers */
+            background: -moz-linear-gradient(top, #001447 0%, #005292 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#001447), color-stop(100%,#005292)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #001447 0%,#005292 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #001447 0%,#005292 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #001447 0%,#005292 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #001447 0%,#005292 100%); /* W3C */
+            -ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001447', endColorstr='#005292',GradientType=0 ); /* IE6-9 */
+        }
+        </style>
+    
+    <link href="css/NIT.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <script type="text/javascript">
+        function MM_preloadImages() { //v3.0
+            var d = document; if (d.images) {
+                if (!d.MM_p) d.MM_p = new Array();
+                var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                    if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+            }
+        }
+        function MM_swapImgRestore() { //v3.0
+            var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+        }
+        function MM_findObj(n, d) { //v4.01
+            var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+            }
+            if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+            for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+            if (!x && d.getElementById) x = d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+            var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
+                if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+        }
+    </script>
+
+</head>
+<body bgcolor="#ffffff">
+    <form method="post" action="./Default.aspx" id="form1">
+<input type="hidden" name="ToolkitScriptManager1_HiddenField" id="ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MTk3NDAxNjkPZBYCAgMPZBYEAgMPFCsAAmQQFgAWABYAZAIqD2QWBAISDxQrAAJkZGQCFA9kFgICAw8UKwACZGRkGAMFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYEBQpidG5pbWdTaG93BRBidG5pbWdTaG93UmVzdWx0BQtidG5JbWdQcmludAUMYnRuaW1nQ2FuY2VsBQlsdkJhY2tsb2cPZ2QFEGx2U3ViamVjdERldGFpbHMPZ2RRUBQxFvIgVfx50k5f51Z0VJON3rlAmXJvDT2YJxv0oA==" />
+
+
+<script src="/web_new/ScriptResource.axd?d=GAZcBXg6pJsHKKC7GhMPO3nAszTC8KWOAdaSDRZ5aavi9ym59miFciY0Zq9_mdp4gIayOcNq34K10XRQ5rEmZSLryKLto0M80PHSijaBz0_KYjahDFBKeozq-1OT6VhV0bbmpqSlN-W8rvt20cYbu7Z3DcGvyVqaTMOKMbJY1ObQ4EIdGoBn-MTeJ5IRKdiI0&amp;t=ffffffffcd368728" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="011071C8" />
+    
+    <table width="100%" border="0" align="center" class="header">
+        <tr>
+            <td width="100%" align="center">
+                <img id="ImageMap1" src="images/Capture.JPG" align="top" usemap="#ImageMapImageMap1" width="100%" /><map name="ImageMapImageMap1" id="ImageMapImageMap1">
+	<area shape="circle" coords="1000,200,1000" href="http://www.nitjsr.ac.in" title="" alt="" />
+</map>
+                
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table border="0" align="center" bgcolor="#e9e8e8" class="tablebg">
+        <tr>
+            <td>
+                <br />
+                <table width="100%" border="0" align="center">
+                    <tr>
+                        <td valign="top" align="center">
+                            <table border="0" bgcolor="#ffffff" class="login" width="35%">
+                                <tr>
+                                    <td class="loghead" valign="middle">
+                                        Welcome to Online Result
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #65aee2">
+                                    <td>
+                                        <br />
+                                        <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="width: 25%; font-family: Verdana; font-size: 12px;" align="left">
+                                                    &nbsp;Reg. No :
+                                                </td>
+                                                <td style="width: 25%" align="left">
+                                                    <input name="txtRegno" type="text" id="txtRegno" tabindex="1" class="texbx" />
+                                                    
+                                                </td>
+                                                <td style="width: 50%" align="left">
+                                                    <input type="image" name="btnimgShow" id="btnimgShow" tabindex="2" src="images/Show.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnimgShow&quot;, &quot;&quot;, true, &quot;Show&quot;, &quot;&quot;, false, false))" />
+                                                    
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 38px; font-family: Verdana; font-size: 12px;" colspan="3">
+                                                    <table border="0" width="100%">
+                                                        <tr>
+                                                            <td width="50%" align="left">
+                                                                Name:
+                                                                <span id="lblSName"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 38px; font-family: Verdana; font-size: 12px;" colspan="3">
+                                                    <table border="0" width="100%">
+                                                        <tr>
+                                                            <td width="50%" align="left">
+                                                                Roll No:
+                                                                <span id="lblSRollNo"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 35px; font-family: Verdana; font-size: 12px;" colspan="3">
+                                                    <table border="0" width="100%">
+                                                        <tr>
+                                                            <td width="50%" align="left">
+                                                                Branch:
+                                                                <span id="lblSBranch"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-family: Verdana; font-size: 12px;" align="left">
+                                                    &nbsp;Semester :
+                                                </td>
+                                                <td align="left">
+                                                    <select name="ddlSemester" id="ddlSemester" tabindex="3" class="texbx">
+	<option value="0">Select</option>
+
+</select>
+                                                    
+                                                    <input type="hidden" name="hfIdno" id="hfIdno" />
+                                                </td>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center">
+                                        <input type="image" name="btnimgShowResult" id="btnimgShowResult" tabindex="5" src="images/show_result.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnimgShowResult&quot;, &quot;&quot;, true, &quot;Result&quot;, &quot;&quot;, false, false))" />&nbsp;
+                                            
+                                         <input type="image" name="btnImgPrint" id="btnImgPrint" tabindex="6" src="images/print.PNG" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnImgPrint&quot;, &quot;&quot;, true, &quot;Result&quot;, &quot;&quot;, false, false))" />&nbsp;
+                                        
+                                        <input type="image" name="btnimgCancel" id="btnimgCancel" tabindex="7" src="images/Cancel.png" />
+                                        
+                                        
+                                            <input type="hidden" name="hdfidno" id="hdfidno" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <div id="divMsg"></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            
+        </tr>
+    </table>
+    <br />
+    
+    
+    <br />
+    <br />
+    <!--end display-->
+    </td> </tr>
+    <tr>
+        <td height="78" align="center" valign="bottom">
+            <table width="100%" border="0" align="center" class="footer">
+                <tr>
+                    <td align="center">
+                         <img src="images/mslogo.png" width="23" height="29" />Developed by<a href="http://www.iitms.co.in/"
+                            target="_blank" class="link"> IITMS </a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+   
+    </table>
+   
+      <div style="text-align:center; position:fixed ; right:0%; top:4%; width:10%; text-decoration:none">
+      <A href="Main.aspx"/><IMG SRC="images/back.png" alt="Logo" width="100px" height="100px"></a>
+    </div>
+    
+    </form>
+</body>
+</html>

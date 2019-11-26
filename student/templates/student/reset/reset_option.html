@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>Jee Main</title>
+	{% endif %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+</head>
+
+<body style = "background-color: #eee">
+
+    <div class = 'container-fluid'>
+		<div class = 'panel panel-danger' style = 'margin: 70px auto; max-width: 50%'>
+			<div class = 'panel-heading' style = 'border-radius: 3px 3px 0 0'>
+				<b>You can choose one of the ways to recover your account</b>
+			</div>
+			<div class = 'panel-body'>
+				<ul class = 'list-group'>
+					<form action = '{{ url_for("student.reset_parse") }}' method = "POST">
+						<div class = 'form-group'>
+							<input type = 'text' class = 'form-control' name = 'id' placeholder = 'Enter registration number'>
+						</div>
+							<b><button class = 'btn btn-primary btn-block' type = 'submit' name = 'email_verify'>Verification through Email</button>
+								<br>
+							{% with messages = get_flashed_messages() %}
+								{% if messages %}
+									<div id = 'snackbar'>{{ messages[0] }}</div>
+								{% endif %}
+							{% endwith %}
+
+							<button class = 'btn btn-primary btn-block' type = 'submit' name = 'otp_verify'>Verification through OTP</button>
+					</form>
+				</ul>
+
+				<a href = '{{ url_for("main.login_page") }}'>Go Back</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+window.onload = function() {
+	var snackbar = document.getElementById('snackbar');
+    snackbar.className = "show";
+
+  	setTimeout(() => {
+    	snackbar.className = snackbar.className.replace("show","");
+  	},4000);
+}
+
+</script>
+
+</html>

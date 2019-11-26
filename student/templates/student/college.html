@@ -1,0 +1,57 @@
+{% extends 'student/student_layout.html' %}
+
+{% block content %}
+
+<style>
+thead tr th {
+	text-align: center;
+	font-size: 12px;
+}
+</style>
+
+<div class = 'container-fluid'>
+	<div class = 'panel panel-default'>
+		<div class = 'panel-body table-responsive' style = 'margin: 20px 0; padding: 5px'>
+			<table class="table table-bordered">
+				<thead style = 'border-radius: 5px'>
+					<tr>
+						<th>College Name</th>
+						<th>Branch</th>
+						<th>General</th>
+						<th>OBC</th>
+						<th>SC</th>
+						<th>ST</th>
+						<th>Available</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for college in colleges %}
+						<tr>
+								<td>{{ college[1] }}</td>
+								<td>{{ college[2] }}</td>
+								<td>{{ college[3] }}</td>
+								<td>{{ college[4] }}</td>
+								<td>{{ college[5] }}</td>
+								<td>{{ college[6] }}</td>
+								{% if category[0][0] == 'GENERAL' and session['maths']+session['chemistry']+session['physics'] >= college[3] %}
+									<td><i class = 'glyphicon glyphicon-ok text-success'></i></td>
+								{% elif category[0][0] == 'OBC' and session['maths']+session['chemistry']+session['physics'] >= college[4] %}
+									<td><i class = 'glyphicon glyphicon-ok text-success'></i></td>
+								{% elif category[0][0] == 'SC' and session['maths']+session['chemistry']+session['physics'] >= college[5] %}
+									<td><i class = 'glyphicon glyphicon-ok text-success'></i></td>
+								{% elif category[0][0] == 'ST' and session['maths']+session['chemistry']+session['physics'] >= college[6] %}
+									<td><i class = 'glyphicon glyphicon-ok text-success'></i></td>
+								{% else %}
+									<td><i class = 'glyphicon glyphicon-remove text-danger'></i></td>
+								{% endif %}
+
+						</tr>
+					{% endfor %}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block content %}
+
+<style>
+input {
+	
+}
+</style>
+
+{% if student[26] == None or student[27] == None %}
+<form class="form-horizontal" name = 'verify' action="{{ url_for('admin.verify',id=student[0]) }}" method='POST'>
+{% endif %}
+
+	<div class = 'container-fluid' style="background-color: #dddddd; padding-bottom: 20px">
+
+		{%if student[26] == None or student[27] == None %}
+			<div class = 'container-fluid'>
+				<div class = 'panel panel-default' style = 'margin-top: 20px'>
+					<div class = 'panel-body text-danger'>
+						<b>ACCOUNT NOT VERIFIED</b><i class = 'pull-right glyphicon glyphicon-exclamation-sign'></i>
+					</div>
+				</div>
+			</div>
+			{% else %}
+			<div class = 'container-fluid'>
+				<div class = 'panel panel-default' style = 'margin-top: 20px'>
+					<div class = 'panel-body text-success'>
+						<b>ACCOUNT VERIFICATION COMPLETE</b><i class = 'pull-right glyphicon glyphicon-ok'></i>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class = 'container-fluid'>
+			<div class = 'panel panel-default' style = 'margin-top: 20px'>
+				<div class = 'panel-body'>
+					<ul class = 'nav nav-pills nav-stacked'>
+						<li class = 'list-group-item' style = 'border: 2px solid #dddddd'><b>STUDENT RELATED INFO</b>
+						</li>
+					</ul>
+					<div class = 'row' id = 'personal_info'>
+						<div class = 'col-sm-3'>
+							<ul class="nav nav-pills nav-stacked all-info" style = 'margin: 10px'>
+								<li class="active"><a data-toggle = 'pill' href="#personal">Personal Details</a></li>
+								<li><a data-toggle = 'pill' href="#exam">Exam Details</a></li>
+								<li><a data-toggle = 'pill' href="#address">Address</a></li>
+							</ul>
+						</div>
+						<div class = 'col-sm-8 tab-content'>
+							<ul id = "personal" class="list-group tab-pane fade in active" style = 'padding: 10px'>
+								<li class="list-group-item">
+		  							<b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Student Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'name' value = '{{ student[1] }}'>
+									</div> </div></b></li>
+
+		  						<li class="list-group-item">
+		  							<b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Father's Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'father_name' value='{{ student[2] }}'></div></div></b></li>
+		  						
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Mother's Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'mother_name' value = '{{ student[3] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Gender</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'gender' value = '{{ student[4] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>State of Eligibility</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'state_of_eligibility' value = '{{ student[5] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Date Of Birth</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'date_of_birth' value = '{{ student[6] }}'></div></div></b></li>
+
+								<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Category</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'category' value = '{{ student[7] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Person with Disability (PwD)</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'pwd' value = '{{ student[8] }}'></div></div></b></li>
+		  					</ul>
+
+							<ul id = 'exam' class="list-group tab-pane fade" style = 'padding: 10px'>
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Applying For</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'applying_for' value = '{{ student[9] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Mode of Examination</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'mode_of_exam' value = '{{ student[10] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Question Paper Medium</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'paper_medium' value = '{{ student[11] }}'></div></div></b></li>
+							</ul>
+
+							<ul id = 'address' class="list-group tab-pane fade" style = 'padding: 10px'>
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Address</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'address' value = '{{ student[12] }}'></div></div></b></li>
+
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Email Address</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'email' value = '{{ student[13] }}'></div></div></b></li>
+		  						
+		  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Phone</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'phone' value = '{{ student[14] }}'></div></div></b></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class = 'container-fluid'>
+			<div class = 'panel panel-default' style = 'margin-top: 20px'>
+				<div class = 'panel-body'>
+					<ul class = 'nav nav-pills nav-stacked'>
+						<li class = 'list-group-item' style = 'border: 2px solid #dddddd'><b>UPLOADS</b>
+						</li>
+					</ul>
+
+					{% if student[20] != None %}
+					<div class = 'panel-body'>
+						<div class = 'row'>
+							<div class = 'col-sm-4 text-center'>
+								<img class = 'img-thumbnail' src = '{{ student[16] }}'>
+							</div>
+
+							<div class = 'col-sm-4 text-center' style = 'padding: 0 5px'>
+								<img class = 'img-thumbnail' src = '{{ student[17] }}'>
+							</div>
+
+							<div class = 'col-sm-4 text-center'>
+								<img class = 'img-thumbnail' src = '{{ student[18] }}'>
+							</div>
+						</div>
+
+						<div class = 'row' style = 'margin-top: 5px; font-size: 20px; font-weight: bold; text-transform: uppercase'>
+							<div class = 'col-sm-4 text-center'>
+								Photo
+							</div>
+
+							<div class = 'col-sm-4 text-center' style = 'padding: 0 5px'>
+								Signature
+							</div>
+
+							<div class = 'col-sm-4 text-center'>
+								marksheet
+							</div>
+						</div>
+					</div>
+
+					{% else %}
+						<div class = "container-fluid">
+							<h2 class = 'text-center'>Step 2 IS not completed</h2>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+		{% if student[26] == None or student[27] == None %}
+			<div class = 'container-fluid' style = 'margin: 15px 0'>
+				<button class = 'btn btn-success btn-block' type = 'submit'>Verification Complete</button>
+			</div>
+		{% endif %}
+		
+	</div>
+
+{% if student[26] == None or student[27] == None %}
+<form>
+{% endif %}
+
+<script src = "{{ url_for('static',filename='file/verify.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>Test Page</title>
+	{% endif %}
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+</head>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
+
+<body style = "background-color: #dddddd">
+  <div class ='col-sm-3'>
+<div class = 'panel panel-default' style = 'margin: 20px; '>
+  <div class = 'panel-body text-center' style = 'font-size: 160px; height: 300px; top: 0; right: 0; bottom: 0; left: 0;'>
+    &spades;
+  </div>
+</div>
+</div>
+
+</body>
+
+<script>
+
+
+</script>
+
+</html> 

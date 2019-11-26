@@ -1,0 +1,277 @@
+{% extends 'student/student_layout.html' %}
+
+{% block content %}
+
+<div class = 'container-fluid'>
+	<div class = 'panel panel-default' style = 'margin-top: 20px'>
+		<div class = 'panel-body'>
+			<span class = "text-orange"><b>Registration Number : {{ session['id'] }}</b></span>
+			<span class = "text-orange pull-right"><b>Name : {{ session['username'] }}</b></span>
+		</div>
+	</div>
+</div>
+
+{% if session['AIR'] != None %}
+	<div class = 'container-fluid'>
+		<div class = 'panel panel-default' style = 'margin-top: 20px'>
+			<div class = 'panel-body text-center'>
+				<span style = 'color: #33cc33; font-size: 30px'><b>All India Rank (AIR) : {{ session['AIR'] }}</b></span>
+			</div>
+		</div>
+	</div>
+
+	<div class = 'container-fluid'>
+		<div class = 'panel panel-default' style = 'margin-top: 20px'>
+			<div class = 'panel-body' style = 'color: #33cc33; font-size: 15px; padding-left: 40px; padding-right: 40px'>
+				<div>
+					<span>General : {{ session['AIR'] }}</span>
+					<span class = 'pull-right'>OBC : {{ session['obc_rank'] }}</span>
+				</div>
+				<div>
+					<span>SC : {{ session['sc_rank'] }}</span>
+					<span class = 'pull-right'>ST : {{ session['st_rank'] }}</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+<div class = 'container-fluid'>
+	<div class = 'panel panel-default' style = 'margin-top: 20px'>
+		<div class = 'panel-body'>
+			<ul class = 'nav nav-pills nav-stacked'>
+				<li class = 'list-group-item' style = 'border: 2px solid #dddddd'><b>STUDENT RELATED INFO</b>
+					{% if session['info_verified'] == None %}
+						<span class = 'text-small text-danger pull-right'>Not Verified</span>
+					{% else %}
+						<span class = 'text-small text-success pull-right'>Verified</span>
+					{% endif %}
+				</li>
+			</ul>
+			<div class = 'row'>
+				<div class = 'col-sm-3'>
+					<ul class="nav nav-pills nav-stacked all-info" style = 'margin: 10px'>
+						<li class="active"><a data-toggle = 'pill' href="#personal">Personal Details</a></li>
+						<li><a data-toggle = 'pill' href="#exam">Exam Details</a></li>
+						<li><a data-toggle = 'pill' href="#address">Address</a></li>
+						<li><a data-toggle = 'pill' href="#password">Password</a></li>
+					</ul>
+				</div>
+				<div class = 'col-sm-8 tab-content'>
+					<ul id = 'personal' class="list-group tab-pane fade in active" style = 'padding: 10px'>
+  						<li class="list-group-item">
+  							<b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Father's Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['father_name'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Mother's Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['mother_name'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Gender</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['gender'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>State of Eligibility</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['state_of_eligibility'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Date Of Birth</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['date_of_birth'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Category</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['category'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Person with Disability (PwD)</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['pwd'] }}</div></div></b></li>
+  					</ul>
+
+					<ul id = 'exam' class="list-group tab-pane fade" style = 'padding: 10px'>
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Applying For</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['applying_for'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Mode of Examination</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['mode_of_exam'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Question Paper Medium</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['paper_medium'] }}</div></div></b></li>
+					</ul>
+
+					<ul id = 'address' class="list-group tab-pane fade" style = 'padding: 10px'>
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Address</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['address'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Email Address</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['email'] }}</div></div></b></li>
+
+  						<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Phone</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'>{{ session['phone'] }}</div></div></b></li>
+					</ul>
+
+					<ul id = 'password' class="list-group tab-pane fade" style = 'padding: 10px'>
+						<li class = 'list-group-item'>
+							<form action = '{{ url_for("student.student_password") }}' method = 'POST'>
+	  							<div class="form-group">
+	  								<input type="password" name = 'passwd' class="form-control" placeholder="New Password">
+								</div>
+								<div class="form-group">
+	  								<input type="password" name = 'confirm_passwd' class="form-control" placeholder="Confirm Password">
+								</div>
+	  							<button type = 'submit' class = 'btn btn-primary btn-block'>Change Password</button>
+	  						</form>
+	  					</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% if session['step_2'] != 0 %}
+	<div class = 'container-fluid'>
+		<div class = 'panel panel-default' style = 'margin-top: 20px'>
+			<div class = 'panel-body'>
+				<ul class = 'nav nav-pills nav-stacked'>
+					<li class = 'list-group-item' style = 'border: 2px solid #dddddd'><b>UPLOADS</b>
+						{% if session['upload_verified'] == None %}
+							<span class = 'text-small text-danger pull-right'>Not Verified</span>
+						{% else %}
+							<span class = 'text-small text-success pull-right'>Verified</span>
+						{% endif %}
+					</li>
+				</ul>
+
+				<div class = 'panel-body'>
+					<div class = 'row'>
+						<div class = 'col-sm-4 text-center'>
+							<img class = 'img-thumbnail' src = "{{ session['photo'] }}">
+						</div>
+
+						<div class = 'col-sm-4 text-center' style = 'padding: 0 5px'>
+							<img class = 'img-thumbnail' src = " {{ session['signature'] }}">
+						</div>
+
+						<div class = 'col-sm-4 text-center'>
+							<img class = 'img-thumbnail' src = "{{ session['marksheet'] }}">
+						</div>
+					</div>
+
+					<div class = 'row' style = 'margin-top: 5px; font-size: 20px; font-weight: bold; text-transform: uppercase'>
+						<div class = 'col-sm-4 text-center'>
+							Photo
+						</div>
+
+						<div class = 'col-sm-4 text-center' style = 'padding: 0 5px'>
+							Signature
+						</div>
+
+						<div class = 'col-sm-4 text-center'>
+							marksheet
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if session['AIR'] != None %}
+	<div class = 'container-fluid'>
+		<div class = 'panel panel-default' style = 'margin-top: 20px'>
+
+			<div class = 'panel-body'>
+				<ul class = 'nav nav-pills nav-stacked'>
+					<li class = 'list-group-item' style = 'border: 2px solid #dddddd'><b>MARKS</b></li>
+				</ul>
+
+				<div class = 'col-md-12'>
+
+					<div class="card-deck card-container">
+
+			  			<div class="card">
+			  				<div class = 'card-header'>
+			    				<div class="dropdown pull-right">
+									<button class="close dropdown-toggle" type="button" data-toggle="dropdown"><i class = 'glyphicon glyphicon-option-vertical'></i></button>
+									<ul class="dropdown-menu">
+									<li><a href="#">View my Answers</a></li>
+									<li><a id = 'maths' href = "#" data-toggle="modal" data-target="#myModal">Claim</a></li>
+									</ul>
+								</div>
+							</div>
+
+			  				<div class = 'card-body text-center'>
+			  					<p><img class = 'img-circle' src = '/static/photos/math_logo.png' style = 'width: 50px'></p>
+			  					<h4 class = 'card-title'>Mathematics</h4>
+			  					<small class = 'card-text xsmall'>Last updated 2 years ago</small>
+			  					<p>
+			  						<br>
+			  						<b>{{ session['maths'] }} / 120</b>
+								</p>
+
+			  				</div>
+			  			</div>
+
+			  			<div class="card">
+			  				<div class = 'card-header'>
+			    				<div class="dropdown pull-right">
+									<button class="close dropdown-toggle" type="button" data-toggle="dropdown"><i class = 'glyphicon glyphicon-option-vertical'></i></button>
+									<ul class="dropdown-menu">
+									<li><a href="#">View my Answers</a></li>
+									<li><a id = 'physics' href = "#" data-toggle="modal" data-target="#myModal">Claim</a></li>
+									</ul>
+								</div>
+							</div>
+
+			  				<div class = 'card-body text-center'>
+			  					<p><img class = 'img-circle' src = '/static/photos/physics_logo.jpg' style = 'width: 50px'></p>
+			  					<h4 class = 'card-title'>Physics</h4>
+			  					<small class = 'xsmall card-text'>Last updated 2 years ago</small>
+			  					<p>
+			  						<br>
+			  						<b>{{ session['physics'] }} / 120</b>
+								</p>
+			  				</div>
+			  			</div>
+
+			  			<div class="card">
+			  				<div class = 'card-header'>
+			    				<div class="dropdown pull-right">
+									<button class="close dropdown-toggle" type="button" data-toggle="dropdown"><i class = 'glyphicon glyphicon-option-vertical'></i></button>
+									<ul class="dropdown-menu">
+									<li><a href="#">View my Answers</a></li>
+									<li><a id = 'chemistry' href = "#" data-toggle="modal" data-target="#myModal">Claim</a></li>
+									</ul>
+								</div>
+							</div>
+
+			  				<div class = 'card-body text-center'>
+			  					<p><img class = 'img-circle' src = '/static/photos/chemistry_logo.jpg' style = 'width: 50px'></p>
+			  					<h4 class = 'card-title'>Chemistry</h4>
+			  					<small class = 'card-text xsmall'>Last updated 2 years ago</small>
+			  					<p>
+			  						<br>
+			  						<b>{{ session['chemistry']}} / 120</b>
+								</p>
+
+			  				</div>
+			  			</div>
+
+			  		</div>
+			  	</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+<br><br>
+
+
+<!-- Modal -->
+<form name = 'claim' action = '{{ url_for("student.claim") }}' method = "POST">
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 id = 'claim-subject' class="modal-title">Modal Header</h4>
+			</div>
+			<div class="modal-body">
+				<textarea class="form-control" rows="5" name="claim"></textarea>
+				<input type = 'text' name = 'subject' style = 'display: none'>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default" data-dismiss="modal">Send</button>
+			</div>
+			</div>
+
+		</div>
+	</div>
+</form>
+
+<script src = '{{ url_for("static",filename="file/profile.js") }}'></script>
+{% endblock %}

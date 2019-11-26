@@ -1,0 +1,296 @@
+/*  light-orange = #f78c45
+  dark-orange = #fe8500
+  dark-red = #e0182d
+  light-red = #ff4644
+  close-to-perfect-green = #95d13c
+  perfect-green = #34bc6e
+  aqua = #41d6c3
+  dark-green = #5aa700
+  dark-gray = #5a6872
+  light-gray = #dfe3e6
+  light-white = #f4f7fb
+*/
+.bg-light-orange {
+  background-color: #f78c45 !important;
+}
+.bg-dark-orange {
+  background-color: #fe8500 !important;
+}
+.bg-dark-red {
+  background-color: #e0182d !important;
+}
+.bg-light-red {
+  background-color: #ff4644 !important;
+}
+.bg-close-green {
+  background-color: #95d13c !important;
+}
+.bg-perfect-green {
+  background-color: #34bc6e !important;
+}
+.bg-aqua {
+  background-color: #41d6c3 !important;
+}
+.bg-dark-green {
+  background-color: #5aa700 !important;
+}
+.bg-dark-gray {
+  background-color: #5a6872 !important;
+  color: #ffffff !important;
+}
+.border-dark-gray {
+  border: 1px solid #5a6872;
+}
+.bg-light-gray {
+  background-color: #dfe3e6 !important;
+}
+.bg-light-white {
+  background-color: #f4f7fb !important;
+}
+.border-dark {
+  border: 1px solid #343a40;
+}
+.text-orange {
+  color: #fe8500;
+}
+
+/************************ login form css ****************************/
+.form .col-sm-6 {
+  padding: 10px;
+}
+.form-upper-container {
+  background-color: #337ab7;
+  height: 300px;
+}
+.form img {
+  width: 130px;
+  border: 3px solid #337ab7;
+  position: relative;
+  top: -50px;
+  margin-bottom: -60px;
+}
+@media screen and (min-width: 768px) {
+  .form  {
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    position: relative;
+    top: -40px;
+  }
+  .form-upper-container {
+    background-color: #337ab7;
+  }
+}
+/************************ login form css ends here ****************************/
+
+/*********************** Profile css ******************************/
+.navigation-options > li {   /* done to get mobile first look for the bells,messages,profile*/
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+/************************** Other navigation css *****************************/
+.search-bar input {
+  border-radius: 3px;
+  position: relative;
+  border:none;
+}
+.search-bar {
+  list-style-type: none;        /* to get rid of bulleted style on the search-bar */
+}
+.search-bar .dropdown-menu {
+  border-radius: 3px;
+}
+.search-results {
+  max-height:300px;
+  overflow-y: auto;
+}
+.search-bar > .dropdown-menu {      /* positions the search list at the right position */
+  top: 96%;
+  width: 100%;
+}
+.search-bar input:focus .search-icon {
+  color: #000000;
+}
+.sidebar-container,.main-content {
+  padding: 0;
+}
+.navbar-default {
+  margin: 0;
+}
+.navigation-icon i {      /* Done to avoid making all icons of size 26 */
+  font-size: 26px;
+}
+@media screen and (min-width: 768px) {
+  .search-bar input {
+    min-width: 270px;
+    top: 3px;
+  }
+  .navigation-options > li {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 868px) {
+  .search-bar input {
+    min-width: 370px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .search-bar input {
+    min-width: 600px;
+  }
+}
+/******************************* Navbar header css (sidebar) **************************/
+.sidebar-container .navbar-default {
+  background-color: #286090;
+}
+.sidebar-container .navbar-brand {
+  padding-left: 10px;
+}
+/**************************** Sidebar css ****************************/
+.nav-heading {
+  padding: 10px 4px 6px 4px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #5a6872;
+}
+.sidebar-content > li > a {
+  color: #777777;
+  font-size: 14px;
+}
+.sidebar-content > li > a:hover {
+  background-color: rgba(191,191,191,0.6);
+  color: #000;
+}
+.sidebar-content > li > a:focus {
+  border: none;
+}
+.sidebar-content > li.active > a,
+.sidebar-content > li.active > a:hover,
+.sidebar-content > li.active > a:focus  {
+  text-decoration: none;
+  background-color: rgba(191,191,191,0.6);
+  color: #000;
+  font-weight: normal;
+}
+.sidebar-content .glyphicon {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+#level-menu {
+  padding-left: 10px;
+}
+#level-menu a {
+  display: block;
+  padding: 5px 5px 5px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #5a6872;
+}
+#level-menu a:hover {
+  color: #000000;
+}
+.sidebar-content [data-toggle='collapse']::after {
+  content: '';
+  font-size: 20px;
+  float: right;
+}
+.sidebar-container {
+  position: fixed;               /* hiding sidebar for mobile devices */
+  background-color: #ffffff;
+  z-index: 1000;
+  width: 220px;
+  height: 100%;
+  display: none;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.7);
+}
+@media screen and (min-width: 768px) {
+  .sidebar-content {
+    /*border-right: 1px solid #737373;*/
+    /*box-shadow: 1px 2px 4px rgba(0,0,0,0.5);*/
+  }
+  .sidebar-container {
+    /*background-color: #eee;*/
+    position: relative;
+    display: block;
+    box-shadow: none;
+  }
+}
+/********************** Sidebar css ends here **********************/
+
+/************** Main window content navigation bar panel css starts here *****************/
+.main-content-panel {
+  margin-left: -1px;
+  border-left: 1px solid #dfe3e6;
+}
+.nav-collapse {
+  display: block;
+}
+.main-content {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .nav-collapse {
+    display: none !important;
+  }
+  .main-content {
+    width: calc(100% - 220px);
+  }
+}
+/************** Main window content navigation bar panel css ends here *******************/
+
+/************ Message container css at navbar starts here **********************/
+.navbar-message-container,.navbar-notification-container {
+  max-height: 300px;
+}
+.navbar-message-container {
+  left: -140px;
+  width: 350px;
+}
+.navbar-notification-container {
+  left: -75px;
+  width: 350px;
+}
+@media screen and (min-width: 600px) {
+  .navbar-message-container,.navbar-notification-container {
+    left: 0;
+    width: 350px;
+  }
+}
+/************ Message container css at navbar ends here ********************/
+
+.badge {
+  position: absolute;
+  left: 10%;
+  top: 12%;
+}
+
+#snackbar {
+  min-width: 250px;
+  margin-left: -250px;
+  background-color: #34bc6e;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-weight: bold;
+  position: fixed;
+  left: 50%;
+  top: 10px;
+  z-index: 10000;
+  visibility: hidden;
+}
+
+#snackbar.show {
+  visibility: visible;
+  animation: fadein 0.3s ease-in 0s 1, fadeout 0.3s ease-out 3.7s 1;
+}
+
+@keyframes fadein {
+  from { top: -30px; opacity: 0 }
+  to {top: 10px; opacity: 1}
+}
+
+@keyframes fadeout {
+  from { top: 10px; opacity: 1 }
+  to { top: -30px; opacity: 0 }
+}

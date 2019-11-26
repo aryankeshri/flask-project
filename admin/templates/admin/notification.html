@@ -1,0 +1,34 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block content %}
+
+<div class = 'container-fluid' style = 'background-color: #dddddd'>
+	{% if notifications %}
+		{% for notification in notifications %}
+			<div class = 'panel panel-default' style = 'margin: 10px'>
+				<div class = 'panel-body'>
+					<ul class = 'nav nav-pills nav-stacked'>
+						<li class = 'list-group-item' style = 'border: 2px solid #fe8500; color: #222222; overflow: auto; '><b><a href = '{{ url_for("admin.change_data",id=notification[0]) }}'><div class = 'col-sm-2'>{{ notification[1] }}</a></div><div class ='col-sm-6'>{{ notification[3] }}</div><div class = 'col-sm-4'>
+							{% if notification[4] == 0 %}
+								<span class = 'pull-right text-small'><a href = '{{ url_for("admin.resolve",id=notification[0]) }}' class = 'text-danger'>Unresolved</a></span>
+							{% else %}
+								<span class = 'pull-right text-success text-small'>Resolved</span>
+							{% endif %}
+						</div></b>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		{% endfor %}
+
+	{% else %}
+		<div class = 'panel panel-default' style = 'margin: 20px'>
+			<div class = 'panel-body text-center'>
+				<span style = 'font-size: 30px'><b>No Notifications Yet</b></span>
+			</div>
+		</div>
+	{% endif %}
+</div>
+
+{% endblock %}

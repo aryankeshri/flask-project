@@ -1,0 +1,71 @@
+{% extends 'student/student_layout.html' %}
+
+{% block content %}
+
+<style>
+table {
+	font-size: 12px;
+}
+</style>
+<div class = 'container-fluid'>
+	<div class = 'panel panel-default'>
+		<div class = 'panel-body table-responsive' style = 'margin: 20px 0; padding: 5px'>
+			<table class="table">
+				<thead style = 'border-radius: 5px'>
+					<tr>
+
+						<th>Name <a href = "/student/ranking?s=name&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=name&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>Gender&nbsp;</th>
+						<th>Date Of Birth&nbsp;</th>
+
+						<th>Physics <a href = "/student/ranking?s=phy&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=phy&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>Chemistry <a href = "/student/ranking?s=chem&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=chem&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>Mathematics <a href = "/student/ranking?s=maths&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=maths&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>Total <a href = "/student/ranking?s=tot&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=tot&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>AIR <a href = "/student/ranking?s=AIR&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=AIR&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>OBC <a href = "/student/ranking?s=AIR&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=AIR&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>SC <a href = "/student/ranking?s=AIR&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=AIR&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+
+						<th>ST <a href = "/student/ranking?s=AIR&o=a"><i class = 'fa fa-caret-down'></i></a> <a href = "/student/ranking?s=AIR&o=d"><i class = 'fa fa-caret-up'></i></a></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for person in rank %}
+						{% if int(person[0]) == int(session['id']) %}
+							<tr class = "danger" style = 'color: white'>
+								{% for info in person[1:] %}
+									{% if info == None %}
+										<td>N/A</td>
+									{% else %}
+										<td>{{ info }}</td>
+									{% endif %}
+								{% endfor %}
+							</tr>
+						{% else %}
+							<tr>
+								{% for info in person[1:] %}
+									{% if info == None %}
+										<td>N/A</td>
+									{% else %}
+										<td>{{ info }}</td>
+									{% endif %}
+								{% endfor %}
+							</tr>
+						{% endif %}
+					{% endfor %}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'student/student_layout.html' %}
+
+{% block content %}
+
+<div class = 'container-fluid'>
+	{% if all_notifications %}
+		{% for notification in all_notifications %} 
+			<div class = 'panel panel-default' style = 'margin: 10px'>
+				<div class = 'panel-body'>
+					<ul class = 'nav nav-pills nav-stacked'>
+						<li class = 'list-group-item' style = 'border: 2px solid #fe8500; color: #222222; overflow: auto; '><b><div class = 'col-sm-2'>
+						{% if notification[0] == 'maths' %}
+							MATHS CLAIM
+						{% elif notification[0] == 'chemistry' %}
+							CHEMISTRY CLAIM
+						{% else %}
+							PHYSICS CLAIM
+						{% endif %}
+							</div><div class ='col-sm-6'>{{ notification[1] }}</div><div class = 'col-sm-4'>
+
+
+							{% if notification[2] == 0 %}
+								<span class = 'pull-right text-danger text-small'>Unresolved</span>
+							{% else %}
+								<span class = 'pull-right text-success text-small'>Resolved</span>
+							{% endif %}
+						</div></b>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		{% endfor %}
+
+	{% else %}
+		<div class = 'panel panel-default' style = 'margin: 20px'>
+			<div class = 'panel-body text-center'>
+				<span style = 'font-size: 30px'><b>No Notifications Yet</b></span>
+			</div>
+		</div>
+	{% endif %}
+</div>
+
+{% endblock %}

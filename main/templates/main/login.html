@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>JEE Main</title>
+	{% endif %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+	<!--<script src="{{ url_for('static',filename='login/login.js') }}"></script>-->
+	<script src="{{ url_for('static',filename='login/new_login.js') }}"></script>
+</head>
+
+<body>
+
+<div class = 'form-upper-container'></div>
+<div class = 'panel panel-primary col-md-6 col-md-offset-3 form'>
+	<img id = "loggerImage" style = 'z-index: 1' class = 'img-thumbnail center-block' src = 'static/photos/student.png'>
+
+	<div class = 'panel panel-default' style = 'padding: 0 20px; position: relative; bottom: 30px'>
+			<button id = "studentBtn" class = 'btn btn-info active' style = 'border-radius: 20px'>Student</button>
+			<button id = "adminBtn" class = 'btn btn-default pull-right' style = 'border-radius: 20px'>Administrator</button>
+	</div>
+
+	<div class = 'panel-body'>
+		<!-- Student form starts here -->
+		<form name = "studentForm" id = "studentForm" action="/studentlogin" method = 'POST'>
+
+			<!-- for authentication error -->
+
+			{% with messages = get_flashed_messages() %}
+				{% if "student" in messages %}
+					<div class="input-group form-group has-error has-feedback"></div>
+				{% else %}
+					<div class = 'input-group form-group'>
+				{% endif %}
+						<span class = 'input-group-addon'><i class = 'glyphicon glyphicon-user'></i></span>
+						<input type = "text" name = 'id' class = "form-control" placeholder="Registration Number" required>
+					</div>
+
+				{% if "student" in messages %}
+					<div class="input-group form-group has-error has-feedback"></div>
+				{% else %}
+					<div class = 'input-group form-group'>
+				{% endif %}
+						<span class = 'input-group-addon'><i class = 'glyphicon glyphicon-lock'></i></span>
+						<input type = "password" name = 'passwd' class = "form-control" placeholder="Password" required>
+					</div>
+			{% endwith %}
+
+			<div class = 'form-group'>
+				<button id = "studentSubmitBtn" type = 'submit' class = 'btn btn-primary btn-block'>Log in as student</button>
+			</div>
+
+			<div class='form-group'>
+				Cannot Log In. <a href = '{{ url_for("student.register_step_1") }}'>Register</a>
+				<span class = 'pull-right'><a href = '{{ url_for("student.reset_option") }}'>Forgot password?</a></span>
+			</div>
+		</form>
+
+		<!-- Admin Form starts here -->
+		<form name = "adminForm" id = "adminForm" style = "display: none" action="/adminlogin" method="POST">
+			{% with messages = get_flashed_messages() %}
+				{% if ["admin"] in message %}
+					<div class="input-group form-group has-error has-feedback"></div>
+				{% else %}
+					<div class = 'input-group form-group'>
+				{% endif %}
+						<span class = 'input-group-addon'><i class = 'glyphicon glyphicon-lock'></i></span>
+						<input type = "password" name = 'passwd' class = "form-control" placeholder="Password" required>
+					</div>
+			{% endwith %}
+
+			<input type = "text" name = "id" value = "admin" style = "display: none">
+
+			<div class = 'form-group'>
+				<button id = "adminSubmitBtn" type = 'submit' class = 'btn btn-primary btn-block'>Log in as administrator</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+
+
+
+</html>

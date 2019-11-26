@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>College</title>
+	{% endif %}
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/bootstrap.css') }}">
+	<link rel="stylesheet" href=" {{ url_for('static',filename='bootstrap/css/custom.css') }}">
+	<script src="{{ url_for('static',filename='bootstrap/jquery/jquery.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/js/bootstrap.js') }}"></script>
+</head>
+
+<body>
+
+<div classs = 'row'>
+	<!-- Main sidebar starts here -->
+	<div class = 'col-xs-3 sidebar-container'>
+
+<!-- Brand heading starts here -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">JEE MAINS</a>
+				</div>
+			</div>
+		</nav>
+<!-- Brand heading ends here -->
+
+<!-- Sidebar contents starts here -->
+		<ul class="nav nav-pills nav-stacked sidebar-content">
+			<li><a href = '{{ url_for("student.student_home") }}' class = 'collapse text-muted'>Profile</a></li>
+			{% if session['AIR'] != None %}
+				<li><a href = '{{ url_for("student.student_ranking") }}'>Rankings</a></li>
+				<li><a href = '{{ url_for("student.college") }}'>College Available</a></li>
+			{% endif %}
+
+			<li>
+				<a href = '{{ url_for("student.register_incomplete") }}'>
+				Registration
+				{% if session['step_2'] == 0 or session['step_3'] == 0 %}
+					<i class="fa fa-exclamation-circle" style="font-size:15px;color:red; float: right"></i>
+				{% endif %}
+				</a>
+			</li>
+
+			<li><a href = '{{ url_for("student.notification") }}'>Notification</a></li>
+		
+	  	<ul>
+	  <!-- Main Sidebar contents ends here -->
+	</div>
+	<!-- Main Sidebar ends here -->
+
+
+	<div class = 'col-xs-9 main-content' style = 'background-color: #dddddd;'>
+<!-- Top navigation menu starts here  -->
+		<nav class="navbar navbar-default">
+
+			<div class="container-fluid">
+				<!-- Search bar starts here -->
+				<form class="navbar-form navbar-left" action="/action_page.php">
+					<div class="form-group">
+						<li class="dropdown search-bar">
+				        	<input type = 'text' class=" form-control dropdown-toggle " placeholder = 'Search...' data-toggle="dropdown">
+				        	<ul class="dropdown-menu">
+					          		<!--Search dropdown header-->
+								<div class = 'container-fluid' style = 'padding: 5px 10px;'>
+									<small><b class = 'text-muted'>Recent Searches</b></small>
+								</div>
+							<!--Search dropdown header ends-->
+							<!--Search dropdown body-->
+								<div class = 'list-group list-group-flush search-results panel-body'>
+									<a href = '#' class = 'list-group-item'>
+										<div class = 'media'>
+											<div class = 'media-left media-middle'>
+												<img src = 'static/photos/student.png' class = 'media-object img-circle' style = 'width: 30px;'>
+											</div>
+											<div class = 'media-body'>
+												<b class = 'search-header'>Bittu Kumar</b>
+											</div>
+										</div>
+									</a>
+								</div>
+							<!--Search dropdown body ends-->
+							<!--Search dropdown footer-->
+								<div class = 'container-fluid text-center' style = 'padding: 5px 10px;'><a href = ''><small>View all results</small></a></div>
+							<!--Search dropdown footer ends-->
+				        	</ul>
+				      	</li>
+					</div>
+				</form>
+				<!-- Search bar ends here -->
+
+				<ul class="nav navbar-nav navbar-right navigation-options">
+					<!-- Sidebar hider starts here -->
+					<li class = 'dropdown nav-collapse'>
+						<a class = 'navigation-icon' href = '#'>
+							<i class = 'glyphicon glyphicon-th'></i>
+						</a>
+			  		</li>
+			  		<!-- Sidebar hider ends here -->
+
+			  		<!-- Notification bar starts here -->
+				  	<li class="dropdown">
+				    	<a class="dropdown-toggle navigation-icon" data-toggle="dropdown" href="#"><i class = 'glyphicon glyphicon-bell'></i>{% if no_of_notifs > 0 %}<span class = 'badge bg-dark-orange'>{{ no_of_notifs }}</span>{% endif %}</a>
+				    	<ul class="dropdown-menu navbar-message-container">
+						<!--Notification header-->
+							<div class = 'container-fluid' style = 'padding: 5px 10px'>
+								<small><b class = 'text-muted'>Notifications</b></small>
+							</div>
+						<!--Notification header ends-->
+						<!--Notification body-->
+							<div class = 'list-group list-group-flush' >
+								{% if notifications %}
+									{% for notification in notifications %}
+										<a href = '{{ url_for("student.notification") }}' class = 'list-group-item'>
+											<div class = 'media'>
+												<div class = 'media-left'>
+													<img src = 'static/photos/student.png' class = 'media-object img-circle' alt="M" style = 'width: 40px;'>
+												</div>
+												<div class = 'media-body'>
+													<p class = 'navbar-message-sender'>Admin</p>
+													<p class = 'navbar-message'>Your claim : "{{ notification[1] }}" has been resolved</p>
+												</div>
+											</div>
+										</a>
+									{% endfor %}
+								{% else %}
+									<div class = 'media' style = 'border-left: none; border-right: none; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd'>
+										<div class = 'media-body text-center'>
+											<h4>You have no new notifications</h4>
+										</div>
+									</div>
+								{% endif %}
+							</div>
+						<!--Notification body ends-->
+						<!--Notification footer-->
+							<div class = 'container-fluid text-center' style = 'padding: 5px 10px;'><a href = '{{ url_for("student.notification") }}'><small>View all Notifications</small></a></div>
+						<!--Notification footer ends-->
+				    	</ul>
+				  	</li>
+				  <!-- Notification bar ends here -->
+
+					<!-- Notification bar starts -->
+					<li class="dropdown">
+				    	<a class="navigation-icon" href="{{ url_for('student.student_ranking') }}"><i class = 'glyphicon glyphicon-flag'></i></a>
+
+				  	</li>
+				  <!---Notification bar ends-->
+
+				  <!-- Setting bar starts here -->
+				  	<li class="dropdown">
+				    	<a class="dropdown-toggle navigation-icon" data-toggle="dropdown" href="#"><i class = 'glyphicon glyphicon-cog'></i></a>
+				    	<ul class="dropdown-menu pull-right">
+							<li><a href="#">JEE Main Rules</a></li>
+							<li><a href="#">Procedures</a></li>
+							<li><a href="#">Previous Papers</a></li>
+				    	</ul>
+				 	</li>
+				<!-- Setting bar ends here -->
+				<!-- Profile bar starts here -->
+				   	<li class="dropdown navbar-profile">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<img class = 'img-circle' style = 'position: relative; width: 30px' src = '/static/student/student.png'></a>
+
+						<ul class="dropdown-menu pull-right">
+							<li><a href="{{ url_for('student.student_home') }}"><i class = 'glyphicon glyphicon-user'></i> Profile</a></li>
+							<li><a href = "{{ url_for('main.logout_page') }}"><i class = 'glyphicon glyphicon-log-out'></i> Logout</a></li>
+						</ul>
+					</li>
+				<!-- Profile bar ends here -->
+				</ul>
+			</div>
+		</nav> 
+	<!-- Top navigation menu ends here -->
+
+	<!-- Left panel where contents are shown (all the main stuffs) start here -->
+
+		{% block content %} {% endblock %}
+	<!-- Left panel where contents are shown ends here -->
+	</div>
+</div>
+
+</body>
+
+<script>
+</script>
+</html>

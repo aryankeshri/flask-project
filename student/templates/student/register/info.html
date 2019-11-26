@@ -1,0 +1,225 @@
+{% extends 'student/register/register_layout.html' %}
+
+{% block content %}
+
+<style>
+.panel {
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.4);
+}
+
+
+#step1::before {
+	animation: filleft 5s ease-out 1;
+}
+
+@keyframes filleft {
+	from { transform: scale(0); }
+	to   { transform: scale(20); }
+}
+
+</style>
+
+<div class = "container-fluid" style = 'padding: 30px 50px'>
+	<form class="form-horizontal" name = "application_form" action= "{{ url_for('student.register_student') }}" method = "POST">
+
+		<div class = "panel panel-default" style = 'padding: 0; margin-top: 50px; border-radius: 5px'>
+			<!-- Personal Details -->
+			<div class = "panel-heading" style = 'border-radius: 5px 5px 0 0'>
+				<h4><b>Personal Details</b></h4>
+			</div>
+
+			<div class = "panel-body" style = "padding: 15px 25px;">
+  				<div class="form-group">
+    				<label class="control-label col-sm-3">Candidate's Name :&nbsp;</label>
+    				<div class="col-sm-7">
+      					<input type="text" class="form-control" name="name">
+    				</div>
+  				</div>
+
+  				<div class="form-group">
+    				<label class="control-label col-sm-3">Father's Name :&nbsp;</label>
+    				<div class="col-sm-7">
+     					<input type="text" class="form-control" name="father_name">
+    				</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Mother's Name :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "text" class = "form-control" name = "mother_name">
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Gender :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "gender" class = "form-control">
+  							<option value = "male">Male</option>
+  							<option value = "female">Female</option>
+  						</select>
+  					</div>
+  				</div>
+
+ 				<div class = "form-group">
+  					<label class = "control-label col-sm-3">State Of Eligibility :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "state_of_eligibility" class = "form-control">
+  							<!-- States from javascript -->
+  						</select>
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Date Of Birth :&nbsp;</label>
+  					<div class = "col-sm-2">
+  						<select name = "date" class = "form-control">
+  							<!-- Date from javascript -->
+  						</select>
+  					</div>
+  					<div class = "col-sm-3">
+  						<select name = "month" class = "form-control">
+  							<!-- Month from javascript -->
+  						</select>
+  					</div>
+  					<div class = "col-sm-2">
+  						<select name = "year" class = "form-control">
+  							<!-- Year from javascript -->
+  						</select>
+  					</div>
+	  			</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Category :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "category" class = "form-control">
+  							<option value = "general">General</option>
+  							<option value = "obc">OBC</option>
+  							<option value = "sc">Scheduled Caste (SC)</option>
+                <option value = "st">Scheduled Tribe (ST)</option>
+  						</select>
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Person with Diability(PwD) :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "pwd" class = "form-control">
+  							<option value = "no">No</option>
+  							<option value = "yes">Yes</option>
+  						</select>
+  					</div>
+  				</div>
+
+			</div>
+		</div>
+
+		<div class = "panel panel-default" style = 'padding: 0; margin-top: 30px; border-radius: 5px'>
+			<!-- Exam Related Details -->
+			<div class = "panel-heading" style = "border-radius: 5px">
+				<h4><b>Exam Related Details</b></h4>
+			</div>
+
+			<div class = "panel-body">
+				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Applying For :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "applying_for" class = "form-control">
+  							<option value = "JEE(Main) Paper-1 (B.E/B.Tech) Only">JEE(Main) Paper-1 (B.E/B.Tech) Only</option>
+  							<option value = "JEE Advanced">JEE Advanced</option>
+  						</select>
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Mode of Examination :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "mode_of_exam" class = "form-control">
+  							<option value = "pen paper test">PEN AND PAPER TEST</option>
+  							<option value = "computer">COMPUTER BASED EXAMINATION</option>
+  						</select>
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Question Paper Medium :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<select name = "paper_medium" class = "form-control">
+  							<option value = "english">ENGLISH</option>
+  							<option value = "hindi">HINDI</option>
+  						</select>
+  					</div>
+  				</div>
+
+			</div>
+		</div>
+
+		<div class = "panel panel-default" style = 'padding: 0; margin-top: 30px; border-radius: 5px'>
+			<div class = "panel-heading" style = "border-radius: 5px">
+				<h4><b>Residence Details</b></h4>
+			</div>
+
+			<div class = "panel-body">
+				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Address :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "text" class = "form-control" name = "address">
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Email Address :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "email" class = "form-control" name = "email">
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Phone Number :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "text" class = "form-control" name = "phone">
+  					</div>
+  				</div>
+
+			</div>
+		</div>
+
+		<div class = "panel panel-default" style = 'padding: 0; margin-top: 30px; border-radius: 5px'>
+
+			<!-- Passsword -->
+			<div class = "panel-heading" style = "border-radius: 5px">
+				<h4><b>Choose Password</b></h4>
+			</div>
+
+			<div class = "panel-body">
+				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Password :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "password" class = "form-control" name = "passwd">
+  					</div>
+  				</div>
+
+  				<div class = "form-group">
+  					<label class = "control-label col-sm-3">Confirm Password :&nbsp;</label>
+  					<div class = "col-sm-7">
+  						<input type = "password" class = "form-control" name = "confirm_passwd">
+  					</div>
+  				</div>
+
+  				<div class="form-group">
+    				<div class="col-sm-offset-2 col-sm-8">
+      					<button id = "next" type = "submit" class="btn btn-primary pull-right" style = "width: 200px">Next</button>
+    				</div>
+  				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script src = "{{ url_for('static',filename='file/register/register_1.js') }}"></script>
+{% endblock %}
+
+{% block sidebar %}
+	<ul class="nav nav-pills nav-stacked sidebar-content" style = 'margin-top: 57px'>
+		<li><a href = '{{ url_for("main.login_page") }}' class = 'collapse text-muted'>Login</a></li>
+	<ul>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block content %}
+
+<style>
+.not-verified:hover {
+		text-decoration: underline;
+}
+
+</style>
+
+<div class = 'container-fluid' style = 'background-color: #dddddd'>
+
+	<div class = 'panel panel-default' style = 'margin: 20px 0'>
+		<div class = 'panel-body'>
+			<form action = '{{ url_for("admin.admin_home") }}' method = 'GET'>
+				<div class = 'row container-fluid'>
+					<div class = 'col-sm-5'>
+						<div class = 'form-group'>
+							<label>Select Type : </label>
+							<select name = 'select_type' class = 'form-control'>
+								<option value = 'all'>All</option>
+								<option value = 'reg_incom'>Registration Incomplete</option>
+								<option value = 'not_verified'>Not Verified</option>
+								<option value = 'verified'>Verified</option>
+							</select>
+						</div>
+
+						<div class = 'form-group'>
+							<button type = 'submit' class = 'btn btn-default btn-md'>Go</button>
+						</div>
+					</div>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	{% for student in students %}
+
+		<div class = 'panel panel-default' style = 'margin: 20px 0'>
+			<div class = 'panel-body'>
+				<div class="media">
+	  				<div class="media-left">
+	    				<img src="/static/photos/student.png" class="img-thumbnail media-object" style="width:60px">
+	  				</div>
+
+	  				<div class="media-body">
+					  	<div class = 'row container-fluid'>
+					  		<div class = 'col-sm-3'>
+					  			<p><b>Name : {{ student[1] }}</b></p>
+					    		<p><b>ID   : {{ student[0] }}</b></p>
+					  		</div>
+					  		<div class = 'col-sm-9'>
+					  			{% if student[4] != 0 or student[3] != 0 or student[2] != 0 %}
+						  			<div class = 'col-sm-4'>
+						  				MATHEMATICS
+						  				<div style = 'background-color: #80ccff; position: absolute; padding: 10px; border-radius: 20px; color: white; font-weight: bold '>{{ student[4] }}</div>
+						  			</div>
+						  			<div class = 'col-sm-4'>
+						  				CHEMISTRY
+						  				<div style = 'background-color: #80ccff; position: absolute; padding: 10px; border-radius: 20px; color: white; font-weight: bold '>{{ student[3] }}</div>
+						  			</div>
+						  			<div class = 'col-sm-4'>
+						  				PHYSICS
+						  				<div style = 'background-color: #80ccff; position: absolute; padding: 10px; border-radius: 20px; color: white; font-weight: bold '>{{ student[2] }}</div>
+						  			</div>
+						  		{% endif %}
+					  		</div>
+					  	</div>
+					</div>
+
+					{% if student[10] == 0 or student[11] == 0 %}
+						<span class = 'text-danger text-small pull-left'>Registration Incomplete</span>
+					{% elif student[8] == None or student[9] == None %}
+  						<a href = '{{ url_for("admin.verify",id=student[0]) }}'><span class = 'text-danger text-small pull-left not-verified'>Not verified</span></a>
+  					{% else %}
+  						<a href = '{{ url_for("admin.verify",id=student[0]) }}'><span class = 'text-success text-small pull-left'>Verified</span></a>
+  						<a href = '{{ url_for("admin.change_data",id=student[0]) }}'><span class = 'text-orange text-small pull-right'>Update marks</span></a>
+  					{% endif %}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+
+</div>
+
+{% endblock %}

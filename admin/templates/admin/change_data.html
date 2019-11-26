@@ -1,0 +1,49 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block content %}
+<div class = 'container-fluid' style = 'background-color: #dddddd'>
+	<div class = 'panel panel-default' style = 'margin-top: 20px'>
+		<div class = 'panel-body'>
+			<ul class = 'nav nav-pills nav-stacked'>
+				<li class = 'list-group-item' style = 'border: 4px solid #dddddd'>
+					<div class = 'row'>
+						<div class = 'col-sm-3 text-center' style ='padding-left: 10px'>
+							<img class = 'img-thumbnail' src = '/static/photos/student.png'>
+						</div>
+						<div class ='col-sm-7' style = 'font-size: 16px; padding: 20px 0 20px 20px; font-weight: bold'>
+
+							<div class = 'col-sm-6'>Registration Number</div><div class = 'col-sm-1'> :</div><div class = 'col-sm-5'>{{ student[0]}}</div>
+							<div class = 'col-sm-6'>Name</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-5'>{{ student[1] }}</div>
+							<div class = 'col-sm-6'>Email</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-5'>{{ student[2] }}</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class = 'panel panel-default' style = 'margin-top: 20px'>
+		<form action = '{{ url_for("admin.change_data",id=student[0]) }}' method = "POST">
+			<input type = 'text' style = 'display: none' name = 'id' value = '{{ student[0] }}'>
+			<div class = 'panel-body'>
+				<ul class="list-group tab-pane fade in active" style = 'padding: 10px'>
+					<li class="list-group-item">
+						<b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Physics</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'physics' value = '{{ student[3] }}'>
+					</div> </div></b></li>
+
+					<li class="list-group-item">
+						<b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Chemistry</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'chemistry' value='{{ student[4] }}'></div></div></b></li>
+						
+					<li class="list-group-item"><b><div class = 'row' style = 'padding-left: 10px'><div class = 'col-sm-4'>Mathematics</div><div class = 'col-sm-1'>:</div><div class = 'col-sm-6'><input type = 'text' class = 'form-control' name = 'maths' value = '{{ student[5] }}'></div></div></b></li>
+				</ul>
+
+				<button type = 'submit' class = 'btn btn-primary btn-block'>Update Marks</button>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+
+
+{% endblock %}
